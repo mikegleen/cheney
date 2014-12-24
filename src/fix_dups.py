@@ -36,11 +36,12 @@ def main(args):
     newheader = []
     cntr = Counter()
     for name in header:
-        if name in cntr:
-            cntr[name] += 1
-            name += '_' + str(cntr[name])
-        else:
-            cntr[name] = 0
+        if not name:
+            continue
+        cntr[name] += 1
+        print(name, cntr[name])
+        if cntr[name] > 1:
+            name += '_' + str(cntr[name] - 1)
         newheader.append(name)
     writer.writerow(newheader)
     for row in reader:
