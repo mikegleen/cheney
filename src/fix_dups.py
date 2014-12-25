@@ -36,13 +36,12 @@ def main(args):
     newheader = []
     cntr = Counter()
     for name in header:
-        if not name:
-            continue
+        name = name.strip()
         cntr[name] += 1
-        print(name, cntr[name])
-        if cntr[name] > 1:
-            name += '_' + str(cntr[name] - 1)
-        newheader.append(name)
+        # print(name, cntr[name])
+        if cntr[name] > 1 or not name:
+            name += '_' + str(cntr[name])
+        newheader.append(name.lower().replace(' ', '_'))
     writer.writerow(newheader)
     for row in reader:
         if row[0].isdigit():
