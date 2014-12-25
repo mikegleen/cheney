@@ -1,6 +1,12 @@
 """
-   Read a CSV file and write it with duplicate column names fixed. A suffix of
-    _1, _2, ... will be appended to the duplicate names.
+   Read a CSV file and write it with column names fixed:
+
+   * A suffix of _1, _2, ... will be appended to duplicate names.
+   * Unnamed columns will be given arbitrary names.
+   * Names are converted to lower case.
+   * Trailing spaces are stripped.
+   * Embedded spaces are converted to '_' characters.
+
 """
 from __future__ import print_function
 import argparse
