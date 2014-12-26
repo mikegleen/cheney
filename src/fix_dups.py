@@ -50,7 +50,7 @@ def main(args):
         newheader.append(name.lower().replace(' ', '_'))
     writer.writerow(newheader)
     for row in reader:
-        if row[0].isdigit():
+        if row[0].strip():
             writer.writerow(row)
 
 
