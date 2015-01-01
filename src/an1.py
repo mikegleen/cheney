@@ -83,12 +83,13 @@ def main(args):
     mf.lop = mf.lop.map(grade)
     mf.fftd = mf.fftd.map(grade)
     mf.result = mf.result.map(grade)
+    # Compute Value Added and Difference from Actual
     mf.va = mf.result - mf.ap5
     mf.v3 = mf.result - mf.lop
     mf.vf = mf.result - mf.fftd
-    mf.da = abs(mf.va)
-    mf.d3 = abs(mf.v3)
-    mf.df = abs(mf.vf)
+    mf.da = mf.va.abs()
+    mf.d3 = mf.v3.abs()
+    mf.df = mf.vf.abs()
     # print(mf)
     print('Number of students: {}'.format(len(mf)))
     print('Mean of ap, 3lop, and fftp differences from actual:')
