@@ -45,6 +45,7 @@ def main(args):
         name = name.strip()
         cntr[name] += 1
         # print(name, cntr[name])
+        # if duplicate names or the name is blank
         if cntr[name] > 1 or not name:
             name += '_' + str(cntr[name])
         newheader.append(name.lower().replace(' ', '_'))

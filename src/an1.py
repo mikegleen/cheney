@@ -4,7 +4,8 @@ Compare predicted with actual results. Two analyses are done:
 1.
 For each of the AP, 3LOP and FFTD grades, the absolute value of the difference
 between that grade and the result is computed and the mean of those values is
-displayed. In this case, smaller is better.
+displayed. This shows how accurate the predictions were. In this case, smaller
+is better.
 
 2.
 The same computation is done, except that the actual value rather than the
