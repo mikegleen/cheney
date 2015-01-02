@@ -22,8 +22,8 @@ GRADE = pd.Series({'G': 1, 'F': 2, 'E': 3, 'D': 4, 'C': 5, 'B': 6, 'A': 7,
                    'A*': 8})
 COLS1YR = ['name', 'tchgroup', 'most_recent_ap', '3lop', 'fftd']
 COLS2YR = ['name', 'tchgroup', 'y11_ap5', '3lop_3', 'fftd_2']
-RENAME1YR = {'most_recent_ap': 'ap5', '3lop': 'lop', 'result_2': 'result'}
-RENAME2YR = {'y11_ap5': 'ap5', '3lop_3': 'lop', 'fftd_2': 'fftd',
+RENAME1YR = {'most_recent_ap': 'ap', '3lop': 'lop', 'result_2': 'result'}
+RENAME2YR = {'y11_ap5': 'ap', '3lop_3': 'lop', 'fftd_2': 'fftd',
              'result_2': 'result'}
 
 
@@ -79,12 +79,12 @@ def main(args):
     mf.rename(columns=renameyr, inplace=True)
     # print(mf)
     mf.dropna(inplace=True)
-    mf.ap5 = mf.ap5.map(grade)
+    mf.ap = mf.ap.map(grade)
     mf.lop = mf.lop.map(grade)
     mf.fftd = mf.fftd.map(grade)
     mf.result = mf.result.map(grade)
     # Compute Value Added and Difference from Actual
-    mf.va = mf.result - mf.ap5
+    mf.va = mf.result - mf.ap
     mf.v3 = mf.result - mf.lop
     mf.vf = mf.result - mf.fftd
     mf.da = mf.va.abs()
